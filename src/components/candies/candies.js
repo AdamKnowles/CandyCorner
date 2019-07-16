@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import CandyType from "./candyTypes/candyTypes"
 class CandiesList extends Component {
     render() {
         return (
@@ -7,9 +8,13 @@ class CandiesList extends Component {
                 this.props.candies.map(candy =>
                     <div key={candy.id}>
                         {candy.name}
+                        
+            
                     </div>
                 )
             }
+
+            
             </section>
         )
     }
