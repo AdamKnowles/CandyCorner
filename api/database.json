@@ -5,7 +5,7 @@
       "name": "Publix"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "CVS"
     },
     {
@@ -23,7 +23,7 @@
       "name": "Melanie"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Joe"
     },
     {
@@ -42,14 +42,9 @@
       "name": "Snickers"
     },
     {
-      "id": 2,
-      "candyTypeID": 2,
-      "name": "Skittles"
-    },
-    {
       "id": 3,
       "candyTypeID": 3,
-      "name": "Starburst"
+      "name": "Skittles"
     }
   ],
   "candyTypes": [
@@ -58,7 +53,7 @@
       "name": "Chocolate Bar"
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "Hard Candy"
     },
     {

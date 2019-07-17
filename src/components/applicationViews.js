@@ -4,6 +4,7 @@ import LocationList from "./locations/locations"
 import EmployeeList from "./employees/employees"
 import CandiesList from "./candies/candies"
 import CandyTypeList from "./candyTypes/candyTypes"
+import CandyManager from "../modules/CandyManager"
 
 
  class ApplicationViews extends Component {
@@ -19,25 +20,20 @@ import CandyTypeList from "./candyTypes/candyTypes"
     componentDidMount() {
         const newState = {}
 
-        fetch("http://localhost:5002/locations")
+        CandyManager.getAllLocations()
             .then(r => r.json())
             .then(locations => newState.locations = locations)
-            .then(() => fetch("http://localhost:5002/employees")
+            .then(() => CandyManager.getAllEmployees()
             .then(r => r.json()))
             .then(employees => newState.employees = employees)
-            .then(() => fetch("http://localhost:5002/candies")
+            .then(() => CandyManager.getAllCandies()
             .then(r => r.json()))
             .then(candies => newState.candies = candies)
             .then(() => this.setState(newState))
     }
 
     deleteCandies = id => {
-        return fetch(`http://localhost:5002/candies/${id}`, {
-            method: "DELETE"
-        })
-        .then(e => e.json())
-        .then(() => fetch(`http://localhost:5002/candies`))
-        .then(e => e.json())
+        CandyManager.removeAndList(id)
         .then(candies => this.setState({
             candies: candies
         })
