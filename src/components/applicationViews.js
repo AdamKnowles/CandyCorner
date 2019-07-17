@@ -31,6 +31,19 @@ import CandyTypeList from "./candyTypes/candyTypes"
             .then(() => this.setState(newState))
     }
 
+    deleteCandies = id => {
+        return fetch(`http://localhost:5002/candies/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/candies`))
+        .then(e => e.json())
+        .then(candies => this.setState({
+            candies: candies
+        })
+      )
+    }
+
     render() {
         return (
             
@@ -44,7 +57,7 @@ import CandyTypeList from "./candyTypes/candyTypes"
             }} />
             
                 <Route exact path="/candies" render={(props) => {
-                return <CandiesList candies={this.state.candies} />
+                return <CandiesList deleteCandies={this.deleteCandies} candies={this.state.candies} />
             }} />
                 
             
